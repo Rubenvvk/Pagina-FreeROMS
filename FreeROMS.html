@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maqueta de FreeROMS con Imágenes</title>
+    <style>
+        /* Estilos generales */
+        body {
+            background-color: #0d1a3e;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .site-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #0b1532;
+            padding: 10px 20px;
+            border-bottom: 3px solid #3a61c3;
+        }
+
+        header .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+        header .logo span {
+            color: #ffffff;
+        }
+        
+        .main-layout {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .sidebar-left, .sidebar-right {
+            background-color: #071026;
+            padding: 15px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-left {
+            width: 200px;
+            text-align: center;
+        }
+
+        .sidebar-right {
+            width: 220px;
+        }
+
+        .sidebar-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #3a61c3;
+        }
+
+        /* --- ESTILOS PARA LAS IMÁGENES DE LA COLUMNA IZQUIERDA --- */
+        .sidebar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .sidebar-item:hover {
+            transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+        }
+        
+        /* Estilo para las imágenes de logos (GBA, PSX, etc.) */
+        .sidebar-item img {
+            height: 60px; /* Altura fija para los logos */
+            margin-bottom: 8px;
+            object-fit: contain; /* Asegura que la imagen no se deforme */
+        }
+        
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .recommendation-box {
+            display: flex;
+            background-color: #071026;
+            border: 1px solid #333;
+        }
+
+        .download-info {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            border-right: 2px solid black;
+        }
+        
+        /* --- ESTILO PARA LA IMAGEN PRINCIPAL (RECOMENDACIÓN) --- */
+        .recommendation-image {
+            flex-grow: 1;
+            min-height: 300px;
+            background-color: #1a1a1a;
+        }
+        
+        .recommendation-image img {
+            width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+            height: 100%; /* La imagen ocupa toda la altura del contenedor */
+            object-fit: cover; /* La imagen cubre el área sin deformarse */
+        }
+
+        .console-choice {
+            background-color: #071026;
+            margin-top: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .console-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* --- ESTILOS PARA LAS IMÁGENES DE LA SECCIÓN "ESCOGE TU CONSOLA" --- */
+        .console-logo-link {
+            display: inline-block; /* Para que los efectos funcionen bien */
+            transition: transform 0.2s; /* Transición suave */
+        }
+        
+        .console-logo-link:hover {
+            transform: translateY(-3px); /* Se mueve un poco hacia arriba */
+        }
+        
+        .console-logo-link:active {
+            transform: translateY(1px); /* Simula el click */
+        }
+
+        .console-logo-link img {
+            height: 45px; /* Altura fija para los logos de consolas */
+            cursor: pointer;
+        }
+
+        .rom-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rom-list li a {
+            display: block;
+            color: #b0b0b0;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-bottom: 1px solid #1c2a4f;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .rom-list li a:before {
+            content: '› ';
+            margin-right: 5px;
+        }
+
+        .rom-list li a:hover {
+            background-color: #3a61c3;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="site-container">
+        <header>
+            <div class="logo">FREE<span>ROMS</span></div>
+        </header>
+
+        <div class="main-layout">
+            <!-- ===== COLUMNA IZQUIERDA ===== -->
+            <aside class="sidebar-left">
+                <h2 class="sidebar-title">Consolas populares</h2>
+                <div class="sidebar-item">
+                    <!-- Cambia "ruta/a/tu/logo_gba.png" por la ubicación de tu imagen -->
+                    <img src="https://images.seeklogo.com/logo-png/27/1/game-boy-logo-png_seeklogo-270488.png" alt="Logo Game Boy Advance">
+                    <span>GAME BOY ADVANCE</span>
+                </div>
+                <div class="sidebar-item">
+                    <img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation">
+                    <span>PlayStation</span>
+                </div>
+                <div class="sidebar-item">
+                    <img src="https://images.icon-icons.com/2904/PNG/512/atari_game_retro_video_icon_183164.png" alt="Logo Atari">
+                    <span>Atari</span>
+                </div>
+
+                <h2 class="sidebar-title" style="margin-top: 40px;">Sagas populares</h2>
+                 <div class="sidebar-item">
+                    <img src="https://www.pngmart.com/files/2/Pokeball-PNG-Free-Download.png" alt="Logo Pokemon">
+                    <span>Pokémon</span>
+                </div>
+                <div class="sidebar-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2022/01/The-Legend-of-Zelda-Logo.png" alt="Logo Zelda">
+                    <span>Legends of zelda</span>
+                </div>
+                 <div class="sidebar-item">
+                    <img src="https://i.redd.it/prkbdnkt5eu01.png" alt="Logo Mario">
+                    <span>Mario bros</span>
+                </div>
+            </aside>
+
+            <!-- ===== COLUMNA CENTRAL ===== -->
+            <main class="main-content">
+                <div class="recommendation-box">
+                    <div class="download-info">
+                        <!-- Aquí podrías poner un ícono de PC si quisieras -->
+                        <h3>Descargar</h3>
+                        <p><b>Peso:</b><br>646 mb</p>
+                        <p><b>Consola:</b><br>PC</p>
+                    </div>
+                    
+                    <div class="recommendation-image">
+                        <!-- Aqui la foto -->
+                        <!-- Cambia "ruta/a/tu/hotline_miami_2.jpg" por la ubicación de tu imagen -->
+                        <img src="https://media.senscritique.com/media/000020888110/300/hotline_miami_2_wrong_number.jpg" alt="Recomendación del día: Hotline Miami 2">
+                    </div>
+                </div>
+
+                <div class="console-choice">
+                    <h2>Escoje tu consola</h2>
+                    <div class="console-grid">
+                        <!-- Aqui van las imagenes de escoje tu consola -->
+                        <a href="#" class="console-logo-link">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Nintendo_Game_Boy_Logo.svg" alt="Logo Game Boy Advance">
+                        </a>
+                        <a href="#" class="console-logo-link">
+                            <img src="https://logodix.com/logo/29539.png" alt="Logo Genesis">
+                        </a>
+                        <a href="#" class="console-logo-link">
+                            <img src="https://logodix.com/logo/814207.png" alt="Logo PC">
+                        </a>
+                        <a href="#" class="console-logo-link">
+                            <img src="https://logodix.com/logo/1943914.png" alt="Logo Amiga CD32">
+                        </a>
+                        <a href="#" class="console-logo-link">
+                             <img src="https://logodix.com/logo/806960.png" alt="Logo Atari">
+                        </a>
+                         <a href="#" class="console-logo-link">
+                            <img src="https://images.seeklogo.com/logo-png/27/1/game-boy-logo-png_seeklogo-270488.png" alt="Logo Game Boy Advance">
+                        </a>
+                         <a href="#" class="console-logo-link">
+                            <img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation">
+                        </a>
+                    </div>
+                </div>
+            </main>
+
+            <!-- ===== COLUMNA DERECHA ===== -->
+            <aside class="sidebar-right">
+                <h2 class="sidebar-title">ROMS</h2>
+                <ul class="rom-list">
+                    <li><a href="#">Amiga</a></li>
+                    <li><a href="#">Amstrad CPC</a></li>
+                    <li><a href="#">Atari 2600</a></li>
+                    <li><a href="#">Atari Jaguar</a></li>
+                    <li><a href="#">...y más</a></li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+</body>
+</html>
