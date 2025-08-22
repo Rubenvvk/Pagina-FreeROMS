@@ -78,11 +78,21 @@
             transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
         }
         
-        /* Estilo para las imágenes de logos (GBA, PSX, etc.) */
-        .sidebar-item img {
-            height: 60px; /* Altura fija para los logos */
+        /* Contenedor para que todos los logos ocupen el mismo espacio */
+        .logo-container {
+            height: 70px; /* Altura fija para el contenedor del logo */
+            width: 100%;  /* Ocupa todo el ancho disponible */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 8px;
-            object-fit: contain; /* Asegura que la imagen no se deforme */
+        }
+
+        /* La imagen se ajustará al contenedor sin deformarse */
+        .logo-container img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain; 
         }
         
         .main-content {
@@ -104,7 +114,6 @@
             border-right: 2px solid black;
         }
         
-        /* --- ESTILO PARA LA IMAGEN PRINCIPAL (RECOMENDACIÓN) --- */
         .recommendation-image {
             flex-grow: 1;
             min-height: 300px;
@@ -112,9 +121,9 @@
         }
         
         .recommendation-image img {
-            width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-            height: 100%; /* La imagen ocupa toda la altura del contenedor */
-            object-fit: cover; /* La imagen cubre el área sin deformarse */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .console-choice {
@@ -132,22 +141,32 @@
         }
 
         /* --- ESTILOS PARA LAS IMÁGENES DE LA SECCIÓN "ESCOGE TU CONSOLA" --- */
+        /* Ahora el enlace es el contenedor con tamaño fijo */
         .console-logo-link {
-            display: inline-block; /* Para que los efectos funcionen bien */
-            transition: transform 0.2s; /* Transición suave */
+            display: inline-flex; /* Usamos flex para centrar la imagen dentro */
+            width: 120px;
+            height: 60px;
+            justify-content: center;
+            align-items: center;
+            background-color: #0b1532; /* Fondo para unificar la apariencia */
+            border-radius: 5px;
+            transition: transform 0.2s;
         }
         
         .console-logo-link:hover {
-            transform: translateY(-3px); /* Se mueve un poco hacia arriba */
+            transform: translateY(-3px);
         }
         
         .console-logo-link:active {
-            transform: translateY(1px); /* Simula el click */
+            transform: translateY(1px);
         }
 
+        /* La imagen ahora se adapta a su contenedor (el enlace <a>) */
         .console-logo-link img {
-            height: 45px; /* Altura fija para los logos de consolas */
             cursor: pointer;
+            max-width: 90%;  /* Un poco de margen para que no toque los bordes */
+            max-height: 90%;
+            object-fit: contain; /* Para que no se deforme */
         }
 
         .rom-list {
@@ -189,30 +208,42 @@
             <aside class="sidebar-left">
                 <h2 class="sidebar-title">Consolas populares</h2>
                 <div class="sidebar-item">
-                    <!-- Cambia "ruta/a/tu/logo_gba.png" por la ubicación de tu imagen -->
-                    <img src="https://images.seeklogo.com/logo-png/27/1/game-boy-logo-png_seeklogo-270488.png" alt="Logo Game Boy Advance">
+                    <!-- Añadimos un div contenedor para la imagen -->
+                    <div class="logo-container">
+                        <img src="https://clipartcraft.com/images600_/nintendo-logo-gameboy-5.png" alt="Logo Game Boy Advance">
+                    </div>
                     <span>GAME BOY ADVANCE</span>
                 </div>
                 <div class="sidebar-item">
-                    <img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation">
+                    <div class="logo-container">
+                        <img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation">
+                    </div>
                     <span>PlayStation</span>
                 </div>
                 <div class="sidebar-item">
-                    <img src="https://images.icon-icons.com/2904/PNG/512/atari_game_retro_video_icon_183164.png" alt="Logo Atari">
+                    <div class="logo-container">
+                        <img src="https://images.icon-icons.com/2904/PNG/512/atari_game_retro_video_icon_183164.png" alt="Logo Atari">
+                    </div>
                     <span>Atari</span>
                 </div>
 
                 <h2 class="sidebar-title" style="margin-top: 40px;">Sagas populares</h2>
                  <div class="sidebar-item">
-                    <img src="https://www.pngmart.com/files/2/Pokeball-PNG-Free-Download.png" alt="Logo Pokemon">
+                    <div class="logo-container">
+                        <img src="https://www.pngmart.com/files/2/Pokeball-PNG-Free-Download.png" alt="Logo Pokemon">
+                    </div>
                     <span>Pokémon</span>
                 </div>
                 <div class="sidebar-item">
-                    <img src="https://logos-world.net/wp-content/uploads/2022/01/The-Legend-of-Zelda-Logo.png" alt="Logo Zelda">
+                    <div class="logo-container">
+                        <img src="https://logos-world.net/wp-content/uploads/2022/01/The-Legend-of-Zelda-Logo.png" alt="Logo Zelda">
+                    </div>
                     <span>Legends of zelda</span>
                 </div>
                  <div class="sidebar-item">
-                    <img src="https://i.redd.it/prkbdnkt5eu01.png" alt="Logo Mario">
+                    <div class="logo-container">
+                        <img src="https://i.redd.it/prkbdnkt5eu01.png" alt="Logo Mario">
+                    </div>
                     <span>Mario bros</span>
                 </div>
             </aside>
@@ -221,31 +252,27 @@
             <main class="main-content">
                 <div class="recommendation-box">
                     <div class="download-info">
-                        <!-- Aquí podrías poner un ícono de PC si quisieras -->
                         <h3>Descargar</h3>
                         <p><b>Peso:</b><br>646 mb</p>
                         <p><b>Consola:</b><br>PC</p>
                     </div>
                     
                     <div class="recommendation-image">
-                        <!-- Aqui la foto -->
-                        <!-- Cambia "ruta/a/tu/hotline_miami_2.jpg" por la ubicación de tu imagen -->
-                        <img src="https://media.senscritique.com/media/000020888110/300/hotline_miami_2_wrong_number.jpg" alt="Recomendación del día: Hotline Miami 2">
+                        <img src="https://img.goodfon.com/original/1920x1080/6/10/hotline-miami-2-wrong-number.jpg" alt="Recomendación del día: Hotline Miami 2">
                     </div>
                 </div>
 
                 <div class="console-choice">
                     <h2>Escoje tu consola</h2>
                     <div class="console-grid">
-                        <!-- Aqui van las imagenes de escoje tu consola -->
                         <a href="#" class="console-logo-link">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Nintendo_Game_Boy_Logo.svg" alt="Logo Game Boy Advance">
                         </a>
                         <a href="#" class="console-logo-link">
-                            <img src="https://logodix.com/logo/29539.png" alt="Logo Genesis">
+                            <img src="https://logodix.com/logo/644441.png" alt="Logo Genesis">
                         </a>
                         <a href="#" class="console-logo-link">
-                            <img src="https://logodix.com/logo/814207.png" alt="Logo PC">
+                            <img src="https://pngimg.com/uploads/computer_pc/computer_pc_PNG102102.png" alt="Logo PC">
                         </a>
                         <a href="#" class="console-logo-link">
                             <img src="https://logodix.com/logo/1943914.png" alt="Logo Amiga CD32">
@@ -254,7 +281,7 @@
                              <img src="https://logodix.com/logo/806960.png" alt="Logo Atari">
                         </a>
                          <a href="#" class="console-logo-link">
-                            <img src="https://images.seeklogo.com/logo-png/27/1/game-boy-logo-png_seeklogo-270488.png" alt="Logo Game Boy Advance">
+                            <img src="https://clipartcraft.com/images600_/nintendo-logo-gameboy-5.png" alt="Logo Game Boy Advance">
                         </a>
                          <a href="#" class="console-logo-link">
                             <img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation">
