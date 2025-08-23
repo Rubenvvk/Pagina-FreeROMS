@@ -1,6 +1,3 @@
-# Pagina **FreeROMS**
-
-
 ## Sobre esta página
 
 
