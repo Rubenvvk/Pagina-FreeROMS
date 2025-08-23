@@ -24,6 +24,7 @@
 
 ## Creadores:
 La página la creo Rubén Fuentealba...
+
 ---
 
 ## Links a los documentos originales para la idea:
