@@ -11,6 +11,7 @@
 4. Abre el archivo con tu navegador.
 5. Disfruta de semejante obra maestra.
 
+---
 
 ### Si quieres indagar más en Github o en la página
 - Puedes hacer tus propias modificaciones de la página editando el archivo que descargaste o copiaste.
@@ -19,10 +20,11 @@
 - Puedes revisar los cambios de la página a traves de los días revisando la parte que dice *"Commits"* en el archivo ***"FreeROMS"*** que esta por aquí.
 - Si quieres usar GitHub por tu cuenta puedes encontrar muchos tutoriales por **Youtube**, solo asegurate que diga **"GitHub"** y no Git, son dos cosas distintas.
 
+---
 
 ## Creadores:
 La página la creo Rubén Fuentealba...
-
+---
 
 ## Links a los documentos originales para la idea:
 [Drive](https://drive.google.com/drive/folders/1sP9n6ZL86IZK6icBOhyREBGSgE8r9gK1?usp=sharing)
