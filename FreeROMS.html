@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freeroms</title>
     <style>
+
         /* Estilos generales */
         body {
             background-color: #0d1a3e;
@@ -75,20 +76,18 @@
         }
 
         .sidebar-item:hover {
-            transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+            transform: scale(1.10);
         }
         
-        /* Contenedor para que todos los logos ocupen el mismo espacio */
         .logo-container {
-            height: 70px; /* Altura fija para el contenedor del logo */
-            width: 100%;  /* Ocupa todo el ancho disponible */
+            height: 70px;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 8px;
         }
 
-        /* La imagen se ajustará al contenedor sin deformarse */
         .logo-container img {
             max-height: 100%;
             max-width: 100%;
@@ -140,15 +139,14 @@
             gap: 15px;
         }
 
-        /* --- ESTILOS PARA LAS IMÁGENES DE LA SECCIÓN "ESCOGE TU CONSOLA" --- */
-        /* Ahora el enlace es el contenedor con tamaño fijo */
+        /* --- ESTILOS PARA LAS IMAGENES DE ESCOGE TU CONSOLA --- */
         .console-logo-link {
-            display: inline-flex; /* Usamos flex para centrar la imagen dentro */
+            display: inline-flex;
             width: 120px;
             height: 60px;
             justify-content: center;
             align-items: center;
-            background-color: #0b1532; /* Fondo para unificar la apariencia */
+            background-color: #0b1532;
             border-radius: 5px;
             transition: transform 0.2s;
         }
@@ -156,9 +154,9 @@
         .console-logo-link:hover {
             transform: translateY(-3px);
             .console-logo-link:active {
-            transform: translateY(1px); /* Esto lo mueve 1px hacia abajo al hacer clic */
+            transform: translateY(1px);
             .sidebar-item:active {
-            transform: scale(1.02); /* Lo hace un poco más pequeño que el hover, simulando presión */
+            transform: scale(1.02);
 }
 }
             
@@ -168,12 +166,11 @@
             transform: translateY(1px);
         }
 
-        /* La imagen ahora se adapta a su contenedor (el enlace <a>) */
         .console-logo-link img {
             cursor: pointer;
-            max-width: 90%;  /* Un poco de margen para que no toque los bordes */
+            max-width: 90%;
             max-height: 90%;
-            object-fit: contain; /* Para que no se deforme */
+            object-fit: contain;
         }
 
         .rom-list {
@@ -211,11 +208,10 @@
         </header>
 
         <div class="main-layout">
-            <!-- ===== COLUMNA IZQUIERDA ===== -->
+            <!-- ===== COLUMNA IZQUIERDA - Consolas y sagas populates ===== -->
             <aside class="sidebar-left">
                 <h2 class="sidebar-title">Consolas populares</h2>
                 <div class="sidebar-item">
-                    <!-- Añadimos un div contenedor para la imagen -->
                     <div class="logo-container">
                         <img src="https://clipartcraft.com/images600_/nintendo-logo-gameboy-5.png" alt="Logo Game Boy Advance">
                     </div>
@@ -255,7 +251,7 @@
                 </div>
             </aside>
 
-            <!-- ===== COLUMNA CENTRAL ===== -->
+            <!-- ===== COLUMNA CENTRAL - Juego recomendado y escoje tu consola ===== -->
             <main class="main-content">
                 <div class="recommendation-box">
                     <div class="download-info">
@@ -271,7 +267,7 @@
                     </div>
                     
                     <div class="recommendation-image">
-                        <img src="https://img.goodfon.com/original/1920x1080/6/10/hotline-miami-2-wrong-number.jpg" alt="Recomendación del día: Hotline Miami 2">
+                        <img src="https://get.wallhere.com/photo/Hotline-Miami-1640621.jpg" alt="Recomendación del día: Hotline Miami 2">
                     </div>
                 </div>
 
@@ -303,7 +299,7 @@
                 </div>
             </main>
 
-            <!-- ===== COLUMNA DERECHA ===== -->
+            <!-- ===== COLUMNA DERECHA - Consolas===== -->
             <aside class="sidebar-right">
                 <h2 class="sidebar-title">ROMS</h2>
                 <ul class="rom-list">
@@ -324,7 +320,7 @@
                     <li><a href="#">Nintendo DS</a></li>
                     <li><a href="#">NES</a></li>
                     <li><a href="#">Nintendo game cube</a></li>
-                    <li><a href="#">Playstation</a></li>
+                    <li><a href="#">PlayStation</a></li>
                     <li><a href="#">Raine</a></li>
                     <li><a href="#">Sega CD</a></li>
                     <li><a href="#">Sega dreamcast</a></li>
@@ -340,6 +336,5 @@
             </aside>
         </div>
     </div>
-
 </body>
 </html>
