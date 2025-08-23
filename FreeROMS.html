@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maqueta de FreeROMS con Imágenes</title>
+    <title>Freeroms</title>
     <style>
         /* Estilos generales */
         body {
@@ -155,6 +155,13 @@
         
         .console-logo-link:hover {
             transform: translateY(-3px);
+            .console-logo-link:active {
+            transform: translateY(1px); /* Esto lo mueve 1px hacia abajo al hacer clic */
+            .sidebar-item:active {
+            transform: scale(1.02); /* Lo hace un poco más pequeño que el hover, simulando presión */
+}
+}
+            
         }
         
         .console-logo-link:active {
@@ -253,7 +260,11 @@
                 <div class="recommendation-box">
                     <div class="download-info">
                         
-                        <p><b>Consola:</b><br>PC</p>
+                        <p><b>Consola:</b><br>
+                        <p><b> </b><br>
+                            <img src="https://pngimg.com/uploads/computer_pc/computer_pc_PNG102102.png" alt="Icono de PC" style="width: 80px; vertical-align: middle; margin-right: 5px;">
+                            PC
+                        </p>
                         <p><b>Peso:</b><br>646 mb</p>
                         <button>Descargar</button>
                         
