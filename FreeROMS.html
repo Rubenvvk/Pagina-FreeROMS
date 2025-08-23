@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freeroms</title>
+    <title>Freeroms - Diseño Renovado</title>
+    <!-- Importamos la fuente Poppins de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-
         /* Estilos generales */
         body {
-            background-color: #0d1a3e;
-            color: white;
-            font-family: Arial, sans-serif;
+            background-color: #121212; 
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -21,15 +24,16 @@
         }
 
         header {
-            background-color: #0b1532;
-            padding: 10px 20px;
-            border-bottom: 3px solid #3a61c3;
+            background-color: #1e1e1e;
+            padding: 15px 30px;
+            border-bottom: 4px solid #ff9900;
         }
 
         header .logo {
             font-size: 36px;
             font-weight: bold;
             color: #ff9900;
+            letter-spacing: 1px;
         }
 
         header .logo span {
@@ -38,13 +42,17 @@
         
         .main-layout {
             display: flex;
-            padding: 20px;
-            gap: 20px;
+            padding: 25px;
+            gap: 25px;
+        }
+
+        .sidebar-left, .sidebar-right, .main-content-wrapper {
+            background-color: #1e1e1e;
+            border-radius: 8px;
         }
 
         .sidebar-left, .sidebar-right {
-            background-color: #071026;
-            padding: 15px;
+            padding: 20px;
             flex-shrink: 0;
         }
 
@@ -58,34 +66,36 @@
         }
 
         .sidebar-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #3a61c3;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+            letter-spacing: 0.5px;
         }
 
-        /* --- ESTILOS PARA LAS IMÁGENES DE LA COLUMNA IZQUIERDA --- */
+        /* --- COLUMNA IZQUIERDA --- */
         .sidebar-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .sidebar-item:hover {
-            transform: scale(1.10);
+            transform: scale(1.08);
+            opacity: 0.85;
         }
         
         .logo-container {
-            height: 70px;
+            height: 65px; /* Un poco más pequeño para mejor balance */
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .logo-container img {
@@ -100,22 +110,51 @@
 
         .recommendation-box {
             display: flex;
-            background-color: #071026;
-            border: 1px solid #333;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .download-info {
-            background-color: white;
-            color: black;
-            padding: 20px;
-            width: 200px;
+            background-color: #f4f4f4;
+            color: #121212;
+            padding: 25px;
+            width: 220px;
             text-align: center;
-            border-right: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
         }
         
+        .download-button {
+            background-color: #ff9900;
+            color: #121212;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            background-color: #ffaf33;
+        }
+
+        .download-button:active {
+            transform: translateY(0);
+        }
+
         .recommendation-image {
             flex-grow: 1;
-            min-height: 300px;
+            min-height: 280px;
             background-color: #1a1a1a;
         }
         
@@ -124,12 +163,21 @@
             height: 100%;
             object-fit: cover;
         }
-
+        
+        /* --- SECCIÓN "ESCOGE TU CONSOLA" --- */
         .console-choice {
-            background-color: #071026;
-            margin-top: 20px;
-            padding: 20px;
+            background-color: #1e1e1e;
+            margin-top: 25px;
+            padding: 25px;
             text-align: center;
+            border-radius: 8px;
+        }
+
+        .console-choice h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 25px;
         }
         
         .console-grid {
@@ -139,38 +187,37 @@
             gap: 15px;
         }
 
-        /* --- ESTILOS PARA LAS IMAGENES DE ESCOGE TU CONSOLA --- */
         .console-logo-link {
             display: inline-flex;
             width: 120px;
             height: 60px;
             justify-content: center;
             align-items: center;
-            background-color: #0b1532;
-            border-radius: 5px;
-            transition: transform 0.2s;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         
         .console-logo-link:hover {
-            transform: translateY(-3px);
-            .console-logo-link:active {
-            transform: translateY(1px);
-            .sidebar-item:active {
-            transform: scale(1.02);
-}
-}
-            
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        
+            
         .console-logo-link:active {
-            transform: translateY(1px);
+            transform: translateY(0px);
         }
 
         .console-logo-link img {
             cursor: pointer;
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 85%;
+            max-height: 85%;
             object-fit: contain;
+            filter: grayscale(30%);
+            transition: filter 0.2s ease;
+        }
+
+        .console-logo-link:hover img {
+            filter: grayscale(0%);
         }
 
         .rom-list {
@@ -183,19 +230,21 @@
             display: block;
             color: #b0b0b0;
             text-decoration: none;
-            padding: 10px 15px;
-            border-bottom: 1px solid #1c2a4f;
-            transition: background-color 0.2s, color 0.2s;
+            padding: 12px 15px;
+            border-bottom: 1px solid #333;
+            transition: background-color 0.2s, color 0.2s, padding-left 0.2s ease;
         }
 
         .rom-list li a:before {
             content: '› ';
             margin-right: 5px;
+            color: #ff9900;
         }
 
         .rom-list li a:hover {
-            background-color: #3a61c3;
-            color: white;
+            background-color: #ff9900;
+            color: #121212;
+            padding-left: 20px;
         }
         
     </style>
@@ -208,9 +257,9 @@
         </header>
 
         <div class="main-layout">
-            <!-- ===== COLUMNA IZQUIERDA - Consolas y sagas populates ===== -->
+            <!-- ===== COLUMNA IZQUIERDA - Consolas y sagas populares ===== -->
             <aside class="sidebar-left">
-                <h2 class="sidebar-title">Consolas populares</h2>
+                <h2 class="sidebar-title">Consolas Populares</h2>
                 <div class="sidebar-item">
                     <div class="logo-container">
                         <img src="https://clipartcraft.com/images600_/nintendo-logo-gameboy-5.png" alt="Logo Game Boy Advance">
@@ -230,7 +279,7 @@
                     <span>Atari</span>
                 </div>
 
-                <h2 class="sidebar-title" style="margin-top: 40px;">Sagas populares</h2>
+                <h2 class="sidebar-title" style="margin-top: 40px;">Sagas Populares</h2>
                  <div class="sidebar-item">
                     <div class="logo-container">
                         <img src="https://www.pngmart.com/files/2/Pokeball-PNG-Free-Download.png" alt="Logo Pokemon">
@@ -241,41 +290,37 @@
                     <div class="logo-container">
                         <img src="https://logos-world.net/wp-content/uploads/2022/01/The-Legend-of-Zelda-Logo.png" alt="Logo Zelda">
                     </div>
-                    <span>Legends of zelda</span>
+                    <span>The Legend of Zelda</span>
                 </div>
                  <div class="sidebar-item">
                     <div class="logo-container">
                         <img src="https://i.redd.it/prkbdnkt5eu01.png" alt="Logo Mario">
                     </div>
-                    <span>Mario bros</span>
+                    <span>Super Mario</span>
                 </div>
             </aside>
 
-            <!-- ===== COLUMNA CENTRAL - Juego recomendado y escoje tu consola ===== -->
+            <!-- ===== COLUMNA CENTRAL - Juego recomendado y escoge tu consola ===== -->
             <main class="main-content">
                 <div class="recommendation-box">
                     <div class="download-info">
-                        
-                        <p><b>Consola:</b><br>
-                        <p><b> </b><br>
-                            <img src="https://pngimg.com/uploads/computer_pc/computer_pc_PNG102102.png" alt="Icono de PC" style="width: 80px; vertical-align: middle; margin-right: 5px;">
-                            PC
-                        </p>
-                        <p><b>Peso:</b><br>646 mb</p>
-                        <button>Descargar</button>
-                        
+                        <p><b>Consola:</b></p>
+                        <img src="https://pngimg.com/uploads/computer_pc/computer_pc_PNG102102.png" alt="Icono de PC" style="width: 80px; margin: 0 auto;">
+                        <p>PC</p>
+                        <p><b>Peso:</b><br>646 MB</p>
+                        <button class="download-button">Descargar</button>
                     </div>
                     
                     <div class="recommendation-image">
-                        <img src="https://get.wallhere.com/photo/Hotline-Miami-1640621.jpg" alt="Recomendación del día: Hotline Miami 2">
+                        <img src="https://get.wallhere.com/photo/Hotline-Miami-1640621.jpg" alt="Recomendación: Hotline Miami">
                     </div>
                 </div>
 
                 <div class="console-choice">
-                    <h2>Escoje tu consola</h2>
+                    <h2>Escoge tu consola</h2>
                     <div class="console-grid">
                         <a href="#" class="console-logo-link">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Nintendo_Game_Boy_Logo.svg" alt="Logo Game Boy Advance">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Nintendo_Game_Boy_Logo.svg" alt="Logo Game Boy">
                         </a>
                         <a href="#" class="console-logo-link">
                             <img src="https://logodix.com/logo/644441.png" alt="Logo Genesis">
@@ -284,7 +329,7 @@
                             <img src="https://pngimg.com/uploads/computer_pc/computer_pc_PNG102102.png" alt="Logo PC">
                         </a>
                         <a href="#" class="console-logo-link">
-                            <img src="https://logodix.com/logo/1943914.png" alt="Logo Amiga CD32">
+                            <img src="https://logodix.com/logo/1943914.png" alt="Logo Amiga">
                         </a>
                         <a href="#" class="console-logo-link">
                              <img src="https://logos-world.net/wp-content/uploads/2021/09/Atari-Logo.png" alt="Logo Atari">
@@ -299,7 +344,7 @@
                 </div>
             </main>
 
-            <!-- ===== COLUMNA DERECHA - Consolas===== -->
+            <!-- ===== COLUMNA DERECHA - ROMS ===== -->
             <aside class="sidebar-right">
                 <h2 class="sidebar-title">ROMS</h2>
                 <ul class="rom-list">
@@ -310,28 +355,19 @@
                     <li><a href="#">Atari Linx</a></li>
                     <li><a href="#">Capcom Play System 2</a></li>
                     <li><a href="#">ColecoVision</a></li>
-                    <li><a href="#">Game boy advance</a></li>
-                    <li><a href="#">Game boy color</a></li>
+                    <li><a href="#">Game Boy Advance</a></li>
+                    <li><a href="#">Game Boy Color</a></li>
                     <li><a href="#">Intellivision</a></li>
                     <li><a href="#">Mame</a></li>
-                    <li><a href="#">Neo geo</a></li>
-                    <li><a href="#">Neo geo pocket</a></li>
+                    <li><a href="#">Neo Geo</a></li>
+                    <li><a href="#">Neo Geo Pocket</a></li>
                     <li><a href="#">Nintendo 64</a></li>
                     <li><a href="#">Nintendo DS</a></li>
                     <li><a href="#">NES</a></li>
-                    <li><a href="#">Nintendo game cube</a></li>
+                    <li><a href="#">Nintendo Game Cube</a></li>
                     <li><a href="#">PlayStation</a></li>
-                    <li><a href="#">Raine</a></li>
-                    <li><a href="#">Sega CD</a></li>
-                    <li><a href="#">Sega dreamcast</a></li>
-                    <li><a href="#">Sega Game gear</a></li>
                     <li><a href="#">Sega Genesis</a></li>
-                    <li><a href="#">Sega Master system</a></li>
-                    <li><a href="#">Super nintendo</a></li>
-                    <li><a href="#">TurboGrafx</a></li>
-                    <li><a href="#">WonderSwan</a></li>
-                    <li><a href="#">Links</a></li>
-
+                    <li><a href="#">Super Nintendo</a></li>
                 </ul>
             </aside>
         </div>
