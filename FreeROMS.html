@@ -27,6 +27,9 @@
             background-color: #1e1e1e;
             padding: 15px 30px;
             border-bottom: 4px solid #ff9900;
+            display: flex;
+            align-items: center;
+            position: relative; 
         }
 
         header .logo {
@@ -37,7 +40,50 @@
         }
 
         header .logo span {
-            color: #a09e9e; /*--Roms del titulo-->*/
+            color: #a09e9e;
+        }
+
+        .search-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border-radius: 50px;
+            border: 2px solid #444;
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-bar:focus {
+            border-color: #ff9900;
+        }
+
+        .search-bar::placeholder {
+            color: #666;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-image: url('https://png.pngtree.com/png-clipart/20230401/original/pngtree-magnifying-glass-line-icon-png-image_9015864.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: invert(1); 
         }
         
         .main-layout {
@@ -46,12 +92,9 @@
             gap: 25px;
         }
 
-        .sidebar-left, .sidebar-right, .main-content-wrapper {
+        .sidebar-left, .sidebar-right {
             background-color: #1e1e1e;
             border-radius: 8px;
-        }
-
-        .sidebar-left, .sidebar-right {
             padding: 20px;
             flex-shrink: 0;
         }
@@ -77,8 +120,7 @@
         .sidebar-title + .sidebar-item {
             margin-top: 15px;
         }
-
-        /* --- COLUMNA IZQUIERDA --- */
+        
         .sidebar-item {
             display: flex;
             flex-direction: column;
@@ -113,6 +155,11 @@
             object-fit: contain; 
         }
         
+
+        #gba-logo {
+            height: 65px; /* El doble de 65px */
+        }
+
         .main-content {
             flex-grow: 1;
         }
@@ -173,7 +220,6 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s ease-in-out;
-            /* --- FORZAR ZOOM HACIA LA DERECHA --- */
             transform-origin: center left;
         }
         
@@ -181,7 +227,55 @@
             transform: scale(1.1);
         }
         
-        /* --- SECCIÓN "ESCOGE TU CONSOLA" --- */
+        .game-details-section {
+            background-color: #1e1e1e;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .details-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .details-content {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .game-description, .game-video-container {
+            flex: 1;
+        }
+
+        .game-description p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #b0b0b0;
+            margin: 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         .console-choice {
             background-color: #1e1e1e;
             margin-top: 25px;
@@ -239,57 +333,6 @@
             filter: grayscale(0%);
         }
 
-        .game-details-section {
-            background-color: #1e1e1e;
-            margin-top: 25px;
-            padding: 25px;
-            border-radius: 8px;
-        }
-
-        .details-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #444;
-        }
-
-        .details-content {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .game-description, .game-video-container {
-            flex: 1;
-        }
-
-        .game-description p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #b0b0b0;
-            margin: 0;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 6px;
-        }
-        
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-
-        /* --- ROMS LIST (COLUMNA DERECHA) --- */
         .rom-list {
             list-style: none;
             padding: 0;
@@ -320,50 +363,61 @@
     </style>
 </head>
 <body>
-
     <div class="site-container">
         <header>
             <div class="logo">FREE<span>ROMS</span></div>
+            <div class="search-container">
+                <span class="search-icon"></span>
+                <input type="text" class="search-bar" placeholder="Buscar ROMs...">
+            </div>
         </header>
 
         <div class="main-layout">
-            <!-- ===== COLUMNA IZQUIERDA - Consolas y sagas populares ===== -->
             <aside class="sidebar-left">
                 <h2 class="sidebar-title">Consolas Populares</h2>
                 <div class="sidebar-item">
-                    <div class="logo-container"><img src="https://cdn.freebiesupply.com/logos/large/2x/game-boy-advance-1-logo-png-transparent.png" alt="Logo Game Boy Advance"></div>
+                    <div class="logo-container" id="gba-logo">
+                        <img src="https://cdn.freebiesupply.com/logos/large/2x/game-boy-advance-1-logo-png-transparent.png" alt="Logo Game Boy Advance">
+                    </div>
                     <span>GAME BOY ADVANCE</span>
                 </div>
                 <div class="sidebar-item">
-                    <div class="logo-container"><img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation"></div>
+                    <div class="logo-container">
+                        <img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation">
+                    </div>
                     <span>PlayStation</span>
                 </div>
                 <div class="sidebar-item">
-                    <div class="logo-container"><img src="https://logos-world.net/wp-content/uploads/2021/09/Atari-Logo.png" alt="Logo Atari"></div>
+                    <div class="logo-container">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/09/Atari-Logo.png" alt="Logo Atari">
+                    </div>
                     <span>Atari</span>
                 </div>
                 <h2 class="sidebar-title" style="margin-top: 40px;">Sagas Populares</h2>
                 <div class="sidebar-item">
-                    <div class="logo-container"><img src="https://www.pngmart.com/files/2/Pokeball-PNG-Free-Download.png" alt="Logo Pokemon"></div>
+                    <div class="logo-container">
+                        <img src="https://www.pngmart.com/files/2/Pokeball-PNG-Free-Download.png" alt="Logo Pokemon">
+                    </div>
                     <span>Pokémon</span>
                 </div>
                 <div class="sidebar-item">
-                    <div class="logo-container"><img src="https://logos-world.net/wp-content/uploads/2022/01/The-Legend-of-Zelda-Logo.png" alt="Logo Zelda"></div>
+                    <div class="logo-container">
+                        <img src="https://logos-world.net/wp-content/uploads/2022/01/The-Legend-of-Zelda-Logo.png" alt="Logo Zelda">
+                    </div>
                     <span>The Legend of Zelda</span>
                 </div>
                 <div class="sidebar-item">
-                    <div class="logo-container"><img src="https://i.redd.it/prkbdnkt5eu01.png" alt="Logo Mario"></div>
+                    <div class="logo-container">
+                        <img src="https://i.redd.it/prkbdnkt5eu01.png" alt="Logo Mario">
+                    </div>
                     <span>Super Mario</span>
                 </div>
             </aside>
-
-            <!-- ===== COLUMNA CENTRAL - Contenido principal ===== -->
             <main class="main-content">
-                <!-- Juego Recomendado -->
                 <div class="recommendation-box">
                     <div class="download-info">
                         <p><b>Consola:</b></p>
-                        <img src="https://static.wikia.nocookie.net/esfinalfantasy/images/6/68/Logo_de_GBA.png/revision/latest?cb=20110816004455" alt="Icono de Game boy advance" style="width: 80px; margin: 0 auto;">
+                        <img src="https://static.wikia.nocookie.net/logopedia/images/a/a1/Gameboy_advance_logo_stacked.svg/revision/latest?cb=20220620020941" alt="Icono de Game boy advance" style="width: 150px; margin: 0 auto;">
                         <p>Game boy Advance</p>
                         <p><b>Peso:</b><br>16 MB</p>
                         <button class="download-button">Descargar</button>
@@ -372,45 +426,32 @@
                         <img src="https://assets-prd.ignimgs.com/2022/01/31/pokemon-firered-button-crop-1643616703712.jpg?crop=1%3A1%2Csmart&format=jpg&auto=webp&quality=80" alt="Recomendación: Pókemon rojo fuego y verde hoja">
                     </div>
                 </div>
-
-                <!-- CAMBIO 2: NUEVA SECCIÓN DE DETALLES DEL JUEGO -->
                 <div class="game-details-section">
                     <h2 class="details-title">Pokémon Edición Rojo Fuego</h2>
                     <div class="details-content">
                         <div class="game-description">
-                            <p>Pokémon Rojo Fuego, una aventura clásica de Kanto. Explora la región, captura Pokémon y desafia a los líderes de gimnasio.</p>
+                            <p>Revive la aventura clásica de Kanto con gráficos mejorados y nuevas características. Pokémon Rojo Fuego es un remake del original, permitiendo a los jugadores explorar la región, capturar Pokémon y desafiar a los líderes de gimnasio en la Game Boy Advance.</p>
                         </div>
                         <div class="game-video-container">
                             <div class="video-wrapper">
-                                <div class="video-wrapper">
-                                    <iframe 
-                                        src="https://www.youtube.com/embed/wgObHXprSOw?autoplay=1&mute=1&loop=1&playlist=wgObHXprSOw&controls=0" 
-                                        frameborder="0" 
-                                        allow="autoplay; encrypted-media" 
-                                        allowfullscreen>
-                                    </iframe>
-                                </div>
+                                <iframe src="https://www.youtube.com/embed/wgObHXprSOw?autoplay=1&mute=1&loop=1&playlist=wgObHXprSOw&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Escoge tu consola -->
                 <div class="console-choice">
                     <h2>Escoge tu consola</h2>
                     <div class="console-grid">
                         <a href="#" class="console-logo-link"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Nintendo_Game_Boy_Logo.svg" alt="Logo Game Boy"></a>
                         <a href="#" class="console-logo-link"><img src="https://logodix.com/logo/644441.png" alt="Logo Genesis"></a>
-                        <a href="#" class="console-logo-link"><img src="https://static.wikia.nocookie.net/kof/images/f/f1/Neo-Geo_logo.jpg/revision/latest/scale-to-width-down/1000?cb=20101209202058&path-prefix=es" alt="Logo Neo Geo"></a>
-                        <a href="#" class="console-logo-link"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ed991cf4-7c8c-4530-b6ba-a3abf3ab2eae/degf53x-c3d46920-661f-49f4-b797-7fa0fc170a09.png/v1/fill/w_1600,h_692/intellivision_logo_by_joshuat1306_degf53x-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjkyIiwicGF0aCI6IlwvZlwvZWQ5OTFjZjQtN2M4Yy00NTMwLWI2YmEtYTNhYmYzYWIyZWFlXC9kZWdmNTN4LWMzZDQ2OTIwLTY2MWYtNDlmNC1iNzk3LTdmYTBmYzE3MGEwOS5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3gOaARe58TW2InNPQflv5-FjruUkjyHhKiQzrqN0Ca0" alt="Logo Intellivision"></a>
+                        <a href="#" class="console-logo-link"><img src="https://pngimg.com/uploads/computer_pc/computer_pc_PNG102102.png" alt="Logo PC"></a>
+                        <a href="#" class="console-logo-link"><img src="https://logodix.com/logo/1943914.png" alt="Logo Amiga"></a>
                         <a href="#" class="console-logo-link"><img src="https://logos-world.net/wp-content/uploads/2021/09/Atari-Logo.png" alt="Logo Atari"></a>
-                        <a href="#" class="console-logo-link"><img src="https://cdn.freebiesupply.com/logos/large/2x/game-boy-advance-1-logo-png-transparent.png" alt="Logo Game Boy Advance"></a>
+                        <a href="#" class="console-logo-link"><img src="https://static.wikia.nocookie.net/logopedia/images/a/a1/Gameboy_advance_logo_stacked.svg/revision/latest?cb=20220620020941" alt="Logo Game Boy Advance"></a>
                         <a href="#" class="console-logo-link"><img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation"></a>
                     </div>
                 </div>
             </main>
-
-            <!-- ===== COLUMNA DERECHA - ROMS ===== -->
             <aside class="sidebar-right">
                 <h2 class="sidebar-title">ROMS</h2>
                 <ul class="rom-list">
@@ -418,12 +459,15 @@
                     <li><a href="#">Amstrad CPC</a></li>
                     <li><a href="#">Atari 2600</a></li>
                     <li><a href="#">Atari Jaguar</a></li>
+                    <li><a href="#">Atari Linx</a></li>
+                    <li><a href="#">Capcom Play System</a></li>
                     <li><a href="#">ColecoVision</a></li>
                     <li><a href="#">Game Boy Advance</a></li>
                     <li><a href="#">Game Boy Color</a></li>
                     <li><a href="#">Intellivision</a></li>
                     <li><a href="#">Mame</a></li>
                     <li><a href="#">Neo Geo</a></li>
+                    <li><a href="#">Neo Geo Pocket</a></li>
                     <li><a href="#">Nintendo 64</a></li>
                     <li><a href="#">Nintendo DS</a></li>
                     <li><a href="#">NES</a></li>
