@@ -9,3 +9,4 @@
 - iconos pequeños al lado de cada consola 
 - Ajusta los estilos CSS para que se vea bien en celular.
 - Que la gente marque sus ROMs favoritos.
+- Que los menus del lado no bajen cuando quiero revisar abajo del menu central, Tiene que haber una seccion unica para ese menu
