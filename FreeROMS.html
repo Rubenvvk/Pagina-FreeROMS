@@ -359,6 +359,35 @@
             color: #121212;
             padding-left: 20px;
         }
+
+        /* Parte para que cambie en pantallas pequeñas */
+        @media (max-width: 768px) {
+
+
+        .main-layout {
+            flex-direction: column;
+        }
+        .sidebar-left, .sidebar-right {
+            width: auto;
+            position: static;
+        }
+        .search-container {
+            position: static;
+            transform: none;
+            width: 100%;
+            margin-top: 15px;
+        }
+        header {
+            flex-direction: column;
+            padding-bottom: 20px;
+        }
+        .search-icon {
+            display: none;
+        }
+        .search-bar {
+            padding-left: 20px;
+        }}
+        /*Hasta aca la parte movil*/
         
     </style>
 </head>
