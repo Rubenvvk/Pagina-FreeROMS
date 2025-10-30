@@ -16,13 +16,3 @@
   2. Edita
 - Puedes revisar los cambios de la página a traves de los días revisando la parte que dice *"Commits"* en el archivo ***"FreeROMS"*** que esta por aquí.
 - Si quieres usar GitHub por tu cuenta puedes encontrar muchos tutoriales por **Youtube**, solo asegurate que diga **"GitHub"** y no Git, son dos cosas distintas.
-
----
-
-## Creadores:
-La página la creo Rubén Fuentealba...
-
----
-
-## Links a los documentos originales para la idea:
-[Drive](https://drive.google.com/drive/folders/1sP9n6ZL86IZK6icBOhyREBGSgE8r9gK1?usp=sharing)
