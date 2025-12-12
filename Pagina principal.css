@@ -1,0 +1,273 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cabecera {
+    background-color: #1e1e1e;
+    padding: 15px 30px;
+    border-bottom: 4px solid #ff9900;
+    margin-bottom: 20px;
+}
+
+.cabecera .logo-texto {
+    float: left;
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff9900;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.cabecera .logo-alt {
+    color: #a09e9e;
+}
+
+.c-busq {
+    float: right;
+    width: 350px;
+    margin-top: 5px;
+}
+
+.barra-busq {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: 2px solid #444;
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+}
+
+.barra-busq:focus {
+    outline: none;
+    border-color: #ff9900;
+}
+
+.cuerpo {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.lat-izq {
+    float: left;
+    width: 200px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.lat-der {
+    float: right;
+    width: 220px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.c-central {
+    float: left;
+    width: 650px; 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tit-lat {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    margin-top: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+    letter-spacing: 0.5px;
+}
+
+.item-lat {
+    margin-bottom: 30px;
+    display: block;
+}
+
+.item-lat:hover {
+    opacity: 0.8;
+}
+
+.c-logo-juego {
+    height: 65px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.c-logo-juego img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.c-recom {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.info-desc {
+    float: left;
+    background-color: #444;
+    color: #d8d1d1;
+    padding: 25px;
+    width: 190px;
+    text-align: center;
+    height: 280px;
+}
+
+.btn-desc {
+    background-color: #ff9900;
+    color: #121212;
+    border: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn-desc:hover {
+    background-color: #ffaf33;
+}
+
+.img-recom {
+    float: left;
+    width: 410px;
+    height: 330px;
+    background-color: #1a1a1a;
+}
+
+.img-recom img {
+    width: 100%;
+    height: 100%;
+}
+
+.detalles {
+    background-color: #1e1e1e;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.tit-det {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.cont-det {
+    width: 100%;
+}
+
+.desc-txt {
+    float: left;
+    width: 48%;
+}
+
+.desc-txt p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #b0b0b0;
+    margin: 0;
+}
+
+.c-video {
+    float: right;
+    width: 48%;
+}
+
+.env-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.env-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.c-consolas {
+    background-color: #1e1e1e;
+    margin-top: 25px;
+    padding: 25px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.c-consolas h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.grid-cons {
+    text-align: center;
+}
+
+
+.link-cons {
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    vertical-align: middle;
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin: 5px;
+    padding-top: 10px;
+}
+
+.link-cons:hover {
+    background-color: #333;
+}
+
+.link-cons img {
+    max-width: 85%;
+    max-height: 85%;
+}
+
+.lista-roms {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-roms li a {
+    display: block;
+    color: #b0b0b0;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-bottom: 1px solid #333;
+}
+
+.lista-roms li a:hover {
+    background-color: #ff9900;
+    color: #121212;
+}
