@@ -1,522 +1,148 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freeroms - Diseño de Ruben</title>
-    <!-- Importamos la fuente Orbitron de Google Fonts -->
+    <title>Freeroms - Pagina Principal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos generales */
-        body {
-            background-color: #121212; 
-            color: #e0e0e0;
-            font-family: 'Orbitron', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .site-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            background-color: #1e1e1e;
-            padding: 15px 30px;
-            border-bottom: 4px solid #ff9900;
-            display: flex;
-            align-items: center;
-            position: relative; 
-        }
-
-        header .logo {
-            font-size: 36px;
-            font-weight: bold;
-            color: #ff9900;
-            letter-spacing: 1px;
-        }
-
-        header .logo span {
-            color: #a09e9e;
-        }
-
-        .search-container {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 350px;
-        }
-
-        .search-bar {
-            width: 100%;
-            padding: 12px 20px 12px 45px;
-            border-radius: 50px;
-            border: 2px solid #444;
-            background-color: #121212;
-            color: #e0e0e0;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .search-bar:focus {
-            border-color: #ff9900;
-        }
-
-        .search-bar::placeholder {
-            color: #666;
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            background-image: url('https://png.pngtree.com/png-clipart/20230401/original/pngtree-magnifying-glass-line-icon-png-image_9015864.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            filter: invert(1); 
-        }
-        
-        .main-layout {
-            display: flex;
-            padding: 25px;
-            gap: 25px;
-        }
-
-        .sidebar-left, .sidebar-right {
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            padding: 20px;
-            flex-shrink: 0;
-        }
-
-        .sidebar-left {
-            width: 200px;
-            text-align: center;
-        }
-
-        .sidebar-right {
-            width: 220px;
-        }
-
-        .sidebar-title {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #444;
-            letter-spacing: 0.5px;
-        }
-        
-        .sidebar-title + .sidebar-item {
-            margin-top: 15px;
-        }
-        
-        .sidebar-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 30px;
-            cursor: pointer;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .sidebar-item:hover {
-            transform: scale(1.08);
-            opacity: 0.85;
-        }
-        
-        .sidebar-item:active {
-            transform: scale(1.02) translateY(2px);
-            transition: transform 0.1s ease;
-        }
-
-        .sidebar-item + .sidebar-title {
-            margin-top: 50px;
-        }
-        
-        .logo-container {
-            height: 65px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .logo-container img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain; 
-        }
-        
-
-        #gba-logo {
-            height: 65px;
-        }
-
-        .main-content {
-            flex-grow: 1;
-        }
-
-        .recommendation-box {
-            display: flex;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .download-info {
-            background-color: #444;
-            color: #d8d1d1;
-            padding: 25px;
-            width: 220px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 15px;
-            flex-shrink: 0;
-        }
-        
-        .download-button {
-            background-color: #ff9900;
-            color: #121212;
-            border: none;
-            padding: 15px 20px;
-            font-size: 18px;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        }
-
-        .download-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-            background-color: #ffaf33;
-        }
-
-        .download-button:active {
-            transform: translateY(0);
-        }
-
-        .recommendation-image {
-            flex-grow: 1;
-            min-height: 280px;
-            background-color: #1a1a1a;
-        }
-        
-        .recommendation-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease-in-out;
-            transform-origin: center;
-        }
-        
-        .recommendation-box:hover .recommendation-image img {
-            transform: scale(1.1);
-        }
-        
-        .game-details-section {
-            background-color: #1e1e1e;
-            margin-top: 25px;
-            padding: 25px;
-            border-radius: 8px;
-        }
-
-        .details-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #444;
-        }
-
-        .details-content {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .game-description, .game-video-container {
-            flex: 1;
-        }
-
-        .game-description p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #b0b0b0;
-            margin: 0;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 6px;
-        }
-        
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .console-choice {
-            background-color: #1e1e1e;
-            margin-top: 25px;
-            padding: 25px;
-            text-align: center;
-            border-radius: 8px;
-        }
-
-        .console-choice h2 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 25px;
-        }
-        
-        .console-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .console-logo-link {
-            display: inline-flex;
-            width: 120px;
-            height: 60px;
-            justify-content: center;
-            align-items: center;
-            background-color: #222;
-            border: 1px solid #333;
-            border-radius: 8px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        }
-        
-        .console-logo-link:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            background-color: #333;
-        }
-            
-        .console-logo-link:active {
-            transform: translateY(0px);
-        }
-
-        .console-logo-link img {
-            cursor: pointer;
-            max-width: 85%;
-            max-height: 85%;
-            object-fit: contain;
-            filter: grayscale(30%);
-            transition: filter 0.2s ease;
-        }
-
-        .console-logo-link:hover img {
-            filter: grayscale(0%);
-        }
-
-        .rom-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .rom-list li a {
-            display: block;
-            color: #b0b0b0;
-            text-decoration: none;
-            padding: 12px 15px;
-            border-bottom: 1px solid #333;
-            transition: background-color 0.2s, color 0.2s, padding-left 0.2s ease;
-        }
-
-        .rom-list li a:before {
-            content: '› ';
-            margin-right: 5px;
-            color: #ff9900;
-        }
-
-        .rom-list li a:hover {
-            background-color: #ff9900;
-            color: #121212;
-            padding-left: 20px;
-        }
-
-        /* Parte para que cambie en pantallas pequeñas */
-        @media (max-width: 768px) {
-
-
-        .main-layout {
-            flex-direction: column;
-        }
-        .sidebar-left, .sidebar-right {
-            width: auto;
-            position: static;
-        }
-        .search-container {
-            position: static;
-            transform: none;
-            width: 100%;
-            margin-top: 15px;
-        }
-        header {
-            flex-direction: column;
-            padding-bottom: 20px;
-        }
-        .search-icon {
-            display: none;
-        }
-        .search-bar {
-            padding-left: 20px;
-        }}
-        /*Hasta aca la parte movil*/
-        
-    </style>
+    <link rel="stylesheet" href="Pagina principal.css">
 </head>
 <body>
-    <div class="site-container">
-        <header>
-            <div class="logo">FREE<span>ROMS</span></div>
-            <div class="search-container">
-                <span class="search-icon"></span>
-                <input type="text" class="search-bar" placeholder="Buscar ROMs...">
+    <div class="contenedor">
+        <div class="cabecera">
+            <div class="logo-texto">FREE<span class="logo-alt">ROMS</span></div>
+            <div class="c-busq">
+                <input type="text" class="barra-busq" placeholder="Buscar ROMs...">
             </div>
-        </header>
-
-        <div class="main-layout">
-            <aside class="sidebar-left">
-                <h2 class="sidebar-title">Sagas Populare</h2>
-                <div class="sidebar-item">
-                    <div class="logo-container" id="gba-logo">
+            <div style="clear: both;"></div>
+        </div>
+        <div class="cuerpo">
+            <div class="lat-izq">
+                <h2 class="tit-lat">Sagas Populares</h2>
+                
+                <div class="item-lat">
+                    <div class="c-logo-juego">
                         <img src="https://cdn2.steamgriddb.com/logo_thumb/59b8a68f5518805ff14961c896caddae.png" alt="Logo Sonic">
                     </div>
                     <span>SONIC</span>
                 </div>
-                <div class="sidebar-item">
-                    <div class="logo-container">
+                
+                <div class="item-lat">
+                    <div class="c-logo-juego">
                         <img src="https://cdn.wikimg.net/en/metroidwiki/images/9/91/Metroid_Series_Logo.png" alt="Logo Metroid">
                     </div>
                     <span>METROID</span>
                 </div>
-                <div class="sidebar-item">
-                    <div class="logo-container">
+                
+                <div class="item-lat">
+                    <div class="c-logo-juego">
                         <img src="https://images.launchbox-app.com/78def217-bb10-48e3-8666-a9e212f4d036.png" alt="Logo Metal Slug">
                     </div>
                     <span>METAL SLUG</span>
                 </div>
                 
-                <div class="sidebar-item">
-                    <div class="logo-container">
+                <div class="item-lat">
+                    <div class="c-logo-juego">
                         <img src="https://www.pngmart.com/files/2/Pokeball-PNG-Free-Download.png" alt="Logo Pokemon">
                     </div>
                     <span>POKEMÓN</span>
                 </div>
-                <div class="sidebar-item">
-                    <div class="logo-container">
+                
+                <div class="item-lat">
+                    <div class="c-logo-juego">
                         <img src="https://logos-world.net/wp-content/uploads/2022/01/The-Legend-of-Zelda-Logo.png" alt="Logo Zelda">
                     </div>
                     <span>THE LEGEND OF ZELDA</span>
                 </div>
-                <div class="sidebar-item">
-                    <div class="logo-container">
+                
+                <div class="item-lat">
+                    <div class="c-logo-juego">
                         <img src="https://i.redd.it/prkbdnkt5eu01.png" alt="Logo Mario">
                     </div>
                     <span>SUPER MARIO</span>
                 </div>
-                <div class="sidebar-item">
-                    <div class="logo-container">
+                
+                <div class="item-lat">
+                    <div class="c-logo-juego">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/EarthBound_Logo.png" alt="Logo Eartbound">
                     </div>
                     <span>EARTBOUND</span>
                 </div>
-            </aside>
-            <main class="main-content">
-                <div class="recommendation-box">
-                    <div class="download-info">
+            </div>
+
+            <div class="c-central">
+                <div class="c-recom">
+                    <div class="info-desc">
                         <p><b>Consola:</b></p>
-                        <img src="https://static.wikia.nocookie.net/logopedia/images/a/a1/Gameboy_advance_logo_stacked.svg/revision/latest?cb=20220620020941" alt="Icono de Game boy advance" style="width: 150px; margin: 0 auto;">
+                        <img src="https://static.wikia.nocookie.net/logopedia/images/a/a1/Gameboy_advance_logo_stacked.svg/revision/latest?cb=20220620020941" alt="Icono de Game boy advance" style="width: 150px; display: block; margin: 0 auto;">
                         <p>Game boy Advance</p>
                         <p><b>Peso:</b><br>16 MB</p>
-                        <button class="download-button">Descargar</button>
+                        <a href="Descargar juego.html" class="btn-desc">Descargar</a>
                     </div>
-                    <div class="recommendation-image">
-                        <img src="https://assets-prd.ignimgs.com/2022/01/31/pokemon-firered-button-crop-1643616703712.jpg?crop=1%3A1%2Csmart&format=jpg&auto=webp&quality=80" alt="Recomendación: Pókemon rojo fuego y verde hoja">
+                    <div class="img-recom">
+                        <img src="https://assets-prd.ignimgs.com/2022/01/31/pokemon-firered-button-crop-1643616703712.jpg?crop=1%3A1%2Csmart&format=jpg&auto=webp&quality=80" alt="Recomendación">
                     </div>
+                    <div style="clear: both;"></div>
                 </div>
-                <div class="game-details-section">
-                    <h2 class="details-title">Pokémon Edición Rojo Fuego</h2>
-                    <div class="details-content">
-                        <div class="game-description">
+
+                <div class="detalles">
+                    <h2 class="tit-det">Pokémon Edición Rojo Fuego</h2>
+                    <div class="cont-det">
+                        <div class="desc-txt">
                             <p>En Pokémon Rojo Fuego, vive la aventura clásica de Kanto. Explorar la región, captura Pokémon y desafia a los líderes de gimnasio en la Game Boy Advance.</p>
                         </div>
-                        <div class="game-video-container">
-                            <div class="video-wrapper">
+                        <div class="c-video">
+                            <div class="env-video">
                                 <iframe src="https://www.youtube.com/embed/wgObHXprSOw?autoplay=1&mute=1&loop=1&playlist=wgObHXprSOw&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
                         </div>
+                        <div style="clear: both;"></div>
                     </div>
                 </div>
-                <div class="console-choice">
+
+                <div class="c-consolas">
                     <h2>Escoge tu consola</h2>
-                    <div class="console-grid">
-                        <a href="#" class="console-logo-link"><img src="https://logos-world.net/wp-content/uploads/2021/09/Nintendo-Switch-Symbol.png" alt="Logo Nintendo Switch"></a>
-                        <a href="#" class="console-logo-link"><img src="https://logodix.com/logo/644441.png" alt="Logo Genesis"></a>
-                        <a href="#" class="console-logo-link"><img src="https://logos-world.net/wp-content/uploads/2023/02/Xbox-One-Symbol.png" alt="Logo Xbox"></a>
-                        <a href="#" class="console-logo-link"><img src="https://static.wikia.nocookie.net/kof/images/f/f1/Neo-Geo_logo.jpg/revision/latest/scale-to-width-down/1000?cb=20101209202058&path-prefix=es" alt="Logo NeoGeo"></a>
-                        <a href="#" class="console-logo-link"><img src="https://logos-world.net/wp-content/uploads/2021/09/Atari-Logo.png" alt="Logo Atari"></a>
-                        <a href="#" class="console-logo-link"><img src="https://static.wikia.nocookie.net/logopedia/images/a/a1/Gameboy_advance_logo_stacked.svg/revision/latest?cb=20220620020941" alt="Logo Game Boy Advance"></a>
-                        <a href="#" class="console-logo-link"><img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation"></a>
+                    <div class="grid-cons">
+                        <a href="#" class="link-cons"><img src="https://logos-world.net/wp-content/uploads/2021/09/Nintendo-Switch-Symbol.png" alt="Logo Nintendo Switch"></a>
+                        <a href="#" class="link-cons"><img src="https://logodix.com/logo/644441.png" alt="Logo Genesis"></a>
+                        <a href="#" class="link-cons"><img src="https://logos-world.net/wp-content/uploads/2023/02/Xbox-One-Symbol.png" alt="Logo Xbox"></a>
+                        <a href="#" class="link-cons"><img src="https://static.wikia.nocookie.net/kof/images/f/f1/Neo-Geo_logo.jpg/revision/latest/scale-to-width-down/1000?cb=20101209202058&path-prefix=es" alt="Logo NeoGeo"></a>
+                        <a href="#" class="link-cons"><img src="https://logos-world.net/wp-content/uploads/2021/09/Atari-Logo.png" alt="Logo Atari"></a>
+                        <a href="Catalogo_consola.html" class="link-cons"><img src="https://static.wikia.nocookie.net/logopedia/images/a/a1/Gameboy_advance_logo_stacked.svg/revision/latest?cb=20220620020941" alt="Logo Game Boy Advance"></a>
+                        <a href="#" class="link-cons"><img src="https://logodix.com/logo/7598.png" alt="Logo PlayStation"></a>
                     </div>
                 </div>
-            </main>
-            <aside class="sidebar-right">
-                <h2 class="sidebar-title">ROMS</h2>
-                <ul class="rom-list">
-                    <li><a href="#">Amiga</a></li>
-                    <li><a href="#">Amstrad CPC</a></li>
-                    <li><a href="#">Atari 2600</a></li>
-                    <li><a href="#">Atari Jaguar</a></li>
-                    <li><a href="#">Atari Linx</a></li>
-                    <li><a href="#">Capcom Play System</a></li>
-                    <li><a href="#">ColecoVision</a></li>
-                    <li><a href="#">Game Boy Advance</a></li>
-                    <li><a href="#">Game Boy Color</a></li>
-                    <li><a href="#">Intellivision</a></li>
-                    <li><a href="#">Mame</a></li>
-                    <li><a href="#">Neo Geo</a></li>
-                    <li><a href="#">Neo Geo Pocket</a></li>
-                    <li><a href="#">Nintendo 64</a></li>
-                    <li><a href="#">Nintendo DS</a></li>
-                    <li><a href="#">NES</a></li>
-                    <li><a href="#">Nintendo Game Cube</a></li>
-                    <li><a href="#">PlayStation</a></li>
-                    <li><a href="#">Sega Genesis</a></li>
-                    <li><a href="#">Super Nintendo</a></li>
+            </div>
+
+            <div class="lat-der">
+                <h2 class="tit-lat">ROMS</h2>
+                <ul class="lista-roms">
+                    <li><a href="#">› Amiga</a></li>
+                    <li><a href="#">› Amstrad CPC</a></li>
+                    <li><a href="#">› Atari 2600</a></li>
+                    <li><a href="#">› Atari Jaguar</a></li>
+                    <li><a href="#">› Atari Linx</a></li>
+                    <li><a href="#">› Capcom Play System</a></li>
+                    <li><a href="#">› ColecoVision</a></li>
+                    <li><a href="#">› Game Boy Advance</a></li>
+                    <li><a href="#">› Game Boy Color</a></li>
+                    <li><a href="#">› Intellivision</a></li>
+                    <li><a href="#">› Mame</a></li>
+                    <li><a href="#">› Neo Geo</a></li>
+                    <li><a href="#">› Neo Geo Pocket</a></li>
+                    <li><a href="#">› Nintendo 64</a></li>
+                    <li><a href="#">› Nintendo DS</a></li>
+                    <li><a href="#">› NES</a></li>
+                    <li><a href="#">› Nintendo Game Cube</a></li>
+                    <li><a href="#">› PlayStation</a></li>
+                    <li><a href="#">› Sega Genesis</a></li>
+                    <li><a href="#">› Super Nintendo</a></li>
                 </ul>
-            </aside>
+            </div>
+            
+            <div style="clear: both;"></div>
         </div>
     </div>
+    <button style="display: block; margin: 0 auto;background-color: black;color: white;">Contact Us | Privacy Policy</button>
 </body>
 </html>
